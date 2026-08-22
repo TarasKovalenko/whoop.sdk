@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net8.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net8.0;net10.0</TargetFrameworks>
     <AssemblyName>Whoop.Sdk</AssemblyName>
     <RootNamespace>Whoop.Sdk</RootNamespace>
     <PackageId>Whoop.Sdk</PackageId>
@@ -9,12 +9,10 @@
     <Description>A modern, dependency-light .NET Standard client for the WHOOP v2 Developer API: cycles, recovery, sleep, workouts, user profile and trusted-partner endpoints, with OAuth2 token handling and async pagination.</Description>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.Text.Json" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1'">
+  <!-- System.Text.Json and IAsyncEnumerable are in-box on .NET; only .NET Standard needs packages. -->
+  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETStandard'">
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
+    <PackageReference Include="System.Text.Json" />
   </ItemGroup>
 
   <ItemGroup>
