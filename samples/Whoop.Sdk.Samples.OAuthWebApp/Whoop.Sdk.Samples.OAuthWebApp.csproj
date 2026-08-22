@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Whoop.Sdk.Samples.OAuthWebApp</RootNamespace>
+    <UserSecretsId>whoop-sdk-oauth-sample</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Whoop.Sdk.Extensions.DependencyInjection/Whoop.Sdk.Extensions.DependencyInjection.csproj" />
+  </ItemGroup>
+
+</Project>

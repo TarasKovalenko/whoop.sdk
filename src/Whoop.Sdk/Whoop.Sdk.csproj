@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net8.0</TargetFrameworks>
+    <AssemblyName>Whoop.Sdk</AssemblyName>
+    <RootNamespace>Whoop.Sdk</RootNamespace>
+    <PackageId>Whoop.Sdk</PackageId>
+    <Title>Whoop.Sdk</Title>
+    <Description>A modern, dependency-light .NET Standard client for the WHOOP v2 Developer API: cycles, recovery, sleep, workouts, user profile and trusted-partner endpoints, with OAuth2 token handling and async pagination.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1'">
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Whoop.Sdk.Tests" />
+  </ItemGroup>
+
+</Project>

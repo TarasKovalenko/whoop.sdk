@@ -1,0 +1,39 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+      DOTNET_NOLOGO: true
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore Whoop.Sdk.slnx
+
+      - name: Build
+        run: dotnet build Whoop.Sdk.slnx -c Release --no-restore
+
+      - name: Test
+        run: dotnet test Whoop.Sdk.slnx -c Release --no-build --collect:"XPlat Code Coverage"
+
+      - name: Pack
+        run: |
+          dotnet pack src/Whoop.Sdk/Whoop.Sdk.csproj -c Release --no-build
+          dotnet pack src/Whoop.Sdk.Extensions.DependencyInjection/Whoop.Sdk.Extensions.DependencyInjection.csproj -c Release --no-build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: packages
+          path: artifacts/packages/*.*nupkg

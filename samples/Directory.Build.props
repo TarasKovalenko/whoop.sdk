@@ -1,0 +1,17 @@
+<Project>
+
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <!-- The shipping libraries floor their Microsoft.Extensions dependencies at 8.0.0 so they stay
+         usable on older hosts. Samples run on current runtimes, so let NuGet resolve transitive
+         Extensions packages upward instead of pinning them back down. -->
+    <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Samples favour readability: console strings are not localized, and top-level catches
+         demonstrate the exception surface rather than production error policy. -->
+    <NoWarn>$(NoWarn);CA1303;CA1031;CA2007;CA1812;CA1861;CA1848;CA1873</NoWarn>
+  </PropertyGroup>
+
+</Project>

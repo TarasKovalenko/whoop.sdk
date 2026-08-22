@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Whoop.Sdk/Whoop.Sdk.csproj" />
+    <Project Path="src/Whoop.Sdk.Extensions.DependencyInjection/Whoop.Sdk.Extensions.DependencyInjection.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/Whoop.Sdk.Samples.QuickStart/Whoop.Sdk.Samples.QuickStart.csproj" />
+    <Project Path="samples/Whoop.Sdk.Samples.Worker/Whoop.Sdk.Samples.Worker.csproj" />
+    <Project Path="samples/Whoop.Sdk.Samples.OAuthWebApp/Whoop.Sdk.Samples.OAuthWebApp.csproj" />
+    <Project Path="samples/Whoop.Sdk.Samples.TrustedPartner/Whoop.Sdk.Samples.TrustedPartner.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Whoop.Sdk.Tests/Whoop.Sdk.Tests.csproj" />
+  </Folder>
+</Solution>

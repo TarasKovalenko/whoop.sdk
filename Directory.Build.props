@@ -1,0 +1,44 @@
+<Project>
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <!-- The throw helpers and char overloads these rules suggest do not exist on .NET Standard 2.0,
+         and the shipping assemblies share one source tree across every target framework. -->
+    <NoWarn>$(NoWarn);CA1510;CA1511;CA1512;CA1513;CA1865;CA1866</NoWarn>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+
+  <!-- Shared package metadata for everything under src/. -->
+  <PropertyGroup Condition="'$(IsPackable)' != 'false' AND $(MSBuildProjectDirectory.Contains('src'))">
+    <Authors>Taras Kovalenko</Authors>
+    <Product>Whoop.Sdk</Product>
+    <Copyright>Copyright (c) Taras Kovalenko</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/TarasKovalenko/whoop.sdk</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TarasKovalenko/whoop.sdk.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>whoop;health;fitness;wearable;api;client;sdk;rest</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)artifacts/packages</PackageOutputPath>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <VersionPrefix>1.0.0</VersionPrefix>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(IsPackable)' != 'false' AND $(MSBuildProjectDirectory.Contains('src'))">
+    <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+
+</Project>
