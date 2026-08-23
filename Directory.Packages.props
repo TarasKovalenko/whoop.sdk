@@ -1,10 +1,9 @@
 <Project>
 
   <PropertyGroup>
-    <SystemTextJsonVersion>8.0.5</SystemTextJsonVersion>
-    <!-- A floor, not a pin: an app already on Microsoft.Extensions 9.x or 10.x resolves upward.
-         Keeping it at 8.0.0 is what lets the DI package stay usable on older hosts. -->
-    <MicrosoftExtensionsVersion>8.0.0</MicrosoftExtensionsVersion>
+    <SystemTextJsonVersion>10.0.11</SystemTextJsonVersion>
+    <!-- A floor, not a pin: an app on a newer Microsoft.Extensions resolves upward. -->
+    <MicrosoftExtensionsVersion>10.0.11</MicrosoftExtensionsVersion>
   </PropertyGroup>
 
   <ItemGroup Label="Runtime">
@@ -16,17 +15,17 @@
   </ItemGroup>
 
   <ItemGroup Label="Samples">
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.10.0" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.11" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="10.9.0" />
   </ItemGroup>
 
   <ItemGroup Label="Test">
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-    <PackageVersion Include="NSubstitute" Version="5.3.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />
+    <PackageVersion Include="NSubstitute" Version="6.2.0" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="xunit" Version="2.9.3" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.0" />
-    <PackageVersion Include="coverlet.collector" Version="6.0.4" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="4.0.0" />
+    <PackageVersion Include="coverlet.collector" Version="10.0.1" />
   </ItemGroup>
 
 </Project>
