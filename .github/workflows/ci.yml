@@ -13,9 +13,9 @@ jobs:
       DOTNET_NOLOGO: true
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v6
         with:
           global-json-file: global.json
 
@@ -33,7 +33,7 @@ jobs:
           dotnet pack src/Whoop.Sdk/Whoop.Sdk.csproj -c Release --no-build
           dotnet pack src/Whoop.Sdk.Extensions.DependencyInjection/Whoop.Sdk.Extensions.DependencyInjection.csproj -c Release --no-build
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: packages
           path: artifacts/packages/*.*nupkg
