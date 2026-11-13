@@ -1,9 +1,9 @@
 <Project>
 
   <PropertyGroup>
-    <SystemTextJsonVersion>10.0.14</SystemTextJsonVersion>
+    <SystemTextJsonVersion>11.0.0</SystemTextJsonVersion>
     <!-- A floor, not a pin: an app on a newer Microsoft.Extensions resolves upward. -->
-    <MicrosoftExtensionsVersion>10.0.14</MicrosoftExtensionsVersion>
+    <MicrosoftExtensionsVersion>11.0.0</MicrosoftExtensionsVersion>
   </PropertyGroup>
 
   <ItemGroup Label="Runtime">
@@ -15,12 +15,12 @@
   </ItemGroup>
 
   <ItemGroup Label="Samples">
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.14" />
-    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="10.11.0" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="11.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup Label="Test">
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.12.0" />
     <PackageVersion Include="NSubstitute" Version="6.2.0" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="xunit" Version="2.9.3" />
