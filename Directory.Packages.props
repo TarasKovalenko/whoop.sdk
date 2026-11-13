@@ -1,10 +1,9 @@
 <Project>
 
   <PropertyGroup>
-    <SystemTextJsonVersion>10.0.15</SystemTextJsonVersion>
+    <SystemTextJsonVersion>11.0.0</SystemTextJsonVersion>
     <!-- A floor, not a pin: an app on a newer Microsoft.Extensions resolves upward. -->
-    <!-- Stay on 10.0.x: the 11.x packages no longer support net8.0, which the SDK still targets. -->
-    <MicrosoftExtensionsVersion>10.0.15</MicrosoftExtensionsVersion>
+    <MicrosoftExtensionsVersion>11.0.0</MicrosoftExtensionsVersion>
   </PropertyGroup>
 
   <ItemGroup Label="Runtime">
